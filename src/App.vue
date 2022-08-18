@@ -3,20 +3,20 @@
     <form>
       <div>
         <label for="first-name">First name</label>
-        <input type="text" id="first-name" v-model="first_name">
+        <input type="text" id="first-name" v-model="person.first_name">
       </div>
       <div>
         <label for="last-name">Last name</label>
-        <input type="text" id="last-name" v-model="last_name">
+        <input type="text" id="last-name" v-model="person.last_name">
       </div>
       <div>
         <label for="date-of-birth">Date of birth</label>
-        <input type="text" id="date-of-birth" v-model="date_of_birth">
+        <input type="text" id="date-of-birth" v-model="person.date_of_birth">
       </div>
     </form>
 
-    <p v-if="last_name && first_name && date_of_birth">
-      {{last_name}} {{first_name}}, {{date_of_birth}}
+    <p v-if="person.last_name && person.first_name && person.date_of_birth">
+      {{person.last_name}} {{person.first_name}}, {{person.date_of_birth}}
     </p>
   </div>
 </template>
@@ -26,9 +26,11 @@ export default {
   name: 'App',
   data() {
     return {
-      first_name: '',
-      last_name: '',
-      date_of_birth: ''
+      person: {
+        first_name: '',
+        last_name: '',
+        date_of_birth: ''
+      }
     }
   }
 }
