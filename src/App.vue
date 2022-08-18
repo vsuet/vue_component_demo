@@ -1,18 +1,9 @@
 <template>
   <div>
     <form>
-      <div>
-        <label for="first-name">First name</label>
-        <input type="text" id="first-name" v-model="person.first_name">
-      </div>
-      <div>
-        <label for="last-name">Last name</label>
-        <input type="text" id="last-name" v-model="person.last_name">
-      </div>
-      <div>
-        <label for="date-of-birth">Date of birth</label>
-        <input type="text" id="date-of-birth" v-model="person.date_of_birth">
-      </div>
+      <input-text label="First name" id="first-name" v-model="person.first_name"/>
+      <input-text label="Last name" id="last-name" v-model="person.last_name"/>
+      <input-text label="Date of birth" id="date-of-birth" v-model="person.date_of_birth"/>
     </form>
 
     <p v-if="person.last_name && person.first_name && person.date_of_birth">
@@ -22,8 +13,13 @@
 </template>
 
 <script>
+import InputText from "@/components/InputText";
+
 export default {
   name: 'App',
+  components: {
+    InputText
+  },
   data() {
     return {
       person: {
@@ -43,19 +39,6 @@ form {
   padding: 10px;
   margin: auto 30px;
 }
-input{
-  font-family: Arial, sans-serif;
-  font-size: 20pt;
-}
-div {
-  margin: 10px;
-  padding: 5px;
-}
-
-label {
-  margin: 3px;
-}
-
 p {
   font-family: Arial, sans-serif;
   font-size: 20pt;
