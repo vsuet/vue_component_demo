@@ -3,7 +3,7 @@
     <form @submit.prevent>
       <input-text label="First name" id="first-name" v-model="person.first_name"/>
       <input-text label="Last name" id="last-name" v-model="person.last_name"/>
-      <input-text label="Date of birth" id="date-of-birth" v-model="person.date_of_birth"/>
+      <input-date label="Date of birth" id="date-of-birth" v-model="person.date_of_birth" />
 
       <button @click="resetForm">Reset</button>
       <button type="submit" @click="submitForm">Submit</button>
@@ -17,11 +17,12 @@
 
 <script>
 import InputText from "@/components/InputText";
+import InputDate from "@/components/InputDate";
 
 export default {
   name: 'App',
   components: {
-    InputText
+    InputText, InputDate
   },
   data() {
     return {
@@ -36,7 +37,6 @@ export default {
     resetForm() {
       this.person.first_name = '';
       this.person.last_name = '';
-      this.person.date_of_birth = '';
     },
     submitForm() {
       if(this.isNotFull) {

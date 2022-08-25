@@ -1,23 +1,23 @@
 <template>
-<div>
-  <label :for="id">{{label}}</label>
-  <input type="text" :id="id" v-model="value">
-</div>
+  <div>
+    <label :for="id">{{label}}</label>
+    <input type="date" :id="id" v-model="value">
+  </div>
 </template>
 
 <script>
 export default {
-  name: "InputText",
+  name: "InputDate",
   props: {
     label: {
       type: String,
       required: true,
       validator(value) {
-        return typeof(value) === 'string';
+        return typeof (value) === 'string';
       }
     },
     id: String,
-    modelValue: String
+    modelValue: Date
   },
   emits: ['update:modelValue'],
   computed: {
@@ -34,17 +34,5 @@ export default {
 </script>
 
 <style scoped>
-input{
-  font-family: Arial, sans-serif;
-  font-size: 20pt;
-}
-div {
-  margin: 10px;
-  padding: 5px;
-}
 
-label {
-  margin: 3px;
-  color: red;
-}
 </style>
